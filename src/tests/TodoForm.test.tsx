@@ -21,13 +21,6 @@ describe("TodoForm", () => {
     fireEvent.submit(form);
 
     // Expect the addTaskMock to have been called with the input value
-    expect(addTaskMock).toHaveBeenCalledWith(
-      expect.objectContaining({
-        preventDefault: expect.any(Function),
-        target: expect.objectContaining({
-          elements: expect.any(Object),
-        }),
-      })
-    );
+    expect(addTaskMock).toHaveBeenCalledWith("New Task");
   });
 });

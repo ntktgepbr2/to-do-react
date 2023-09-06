@@ -1,4 +1,4 @@
-import { FormEvent, useEffect, useRef, useState } from "react";
+import React, { FormEvent, useEffect, useRef, useState } from "react";
 import TodoList from "./TodoList";
 import TodoHeader from "./TodoHeader";
 import TodoForm from "./TodoForm";
@@ -15,19 +15,13 @@ function TodoApp() {
   const inputRef = useRef<HTMLInputElement>(null);
   const [filter, setFilter] = useState<"All" | "Active" | "Completed">("All");
 
-  const addTask = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
-    const inputValue = inputRef.current?.value;
-    if (inputValue!.trim() !== "") {
-      const newTask = {
-        id: tasks.length,
-        text: inputValue,
-        isCompleted: false,
-      };
-      setTasks([...tasks, newTask]);
-      inputRef.current!.value = ""; // Clear the input field
-    }
+  const addTask = (text: string) => {
+    const newTask = {
+      id: tasks.length,
+      text,
+      isCompleted: false,
+    };
+    setTasks([...tasks, newTask]);
   };
 
   const toggleTaskCompletion = (taskId: number) => {

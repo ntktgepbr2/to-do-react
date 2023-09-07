@@ -1,6 +1,7 @@
 {
   "name": "to-do-react",
   "version": "0.1.0",
+  "homepage": "https://ntktgepbr2.github.io/to-do-react",
   "private": true,
   "dependencies": {
     "@cfaester/enzyme-adapter-react-18": "^0.7.1",
